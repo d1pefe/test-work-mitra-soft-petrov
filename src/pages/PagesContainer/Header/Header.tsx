@@ -18,7 +18,7 @@ const Header = () => {
             key: '0',
         },
         {
-            label: 'About me',
+            label: <div onClick={() => {navigate(RoutesList.About)}}>About me</div>,
             key: '1',
         },
     ];

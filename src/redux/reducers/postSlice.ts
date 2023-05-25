@@ -6,11 +6,13 @@ import {CardTypes, CommTypes} from "../../utils/@globalTypes";
 type InitialType = {
     postsList: CardTypes[];
     commList: CommTypes[];
+    auth: CardTypes | undefined;
 };
 
 const initialState: InitialType = {
     postsList: [],
-    commList: []
+    commList: [],
+    auth: undefined,
 };
 
 const postSlice = createSlice({
@@ -27,6 +29,9 @@ const postSlice = createSlice({
         setAllComm: (state, action: PayloadAction<CommTypes[]>) => {
             state.commList = action.payload;
         },
+        setAuth: (state, action: PayloadAction<CardTypes>) => {
+            state.auth = action.payload;
+        },
     },
 });
 
@@ -34,7 +39,8 @@ export const {
     getAllPosts,
     setAllPosts,
     getAllComm,
-    setAllComm
+    setAllComm,
+    setAuth
 } = postSlice.actions;
 
 export default postSlice.reducer;
@@ -42,4 +48,5 @@ export default postSlice.reducer;
 export const PostSelectors = {
     getAllPosts: (state: RootState) => state.posts.postsList,
     getAllComm: (state: RootState) => state.posts.commList,
+    getAuth: (state: RootState) => state.posts.auth
 };

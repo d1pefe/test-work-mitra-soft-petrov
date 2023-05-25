@@ -4,10 +4,15 @@ import styles from "./Card.module.scss";
 import {CardsType} from "../../../../paralect-test/src/utils/@globalTypes";
 import {Button, Modal} from "antd";
 import classNames from "classnames";
-import {useSelector} from "react-redux";
-import {getAllComm, PostSelectors} from "../../redux/reducers/postSlice";
+import {useDispatch, useSelector} from "react-redux";
+import {getAllComm, PostSelectors, setAuth} from "../../redux/reducers/postSlice";
+import {RoutesList} from "../../pages/Router";
+import {useNavigate} from "react-router-dom";
 
 const Card: FC<CardsType> = ({card}) => {
+    const dispatch = useDispatch();
+    const navigate = useNavigate();
+
     const colors = ["#D7E4FD", "#CAEFF0", "#FEE9E2", "#F4EEFD"];
     const randomColor = colors[Math.floor(Math.random() * colors.length)];
 
@@ -36,6 +41,11 @@ const Card: FC<CardsType> = ({card}) => {
         setIsCommOpen(!isCommOpen)
     };
 
+    const onAuthClick = () => {
+        dispatch(setAuth(card));
+        navigate(RoutesList.User);
+    };
+
 
     return (
         <div className={styles.container}>
@@ -48,7 +58,7 @@ const Card: FC<CardsType> = ({card}) => {
                 {card.name}
             </div>
             <div className={styles.author}>{card.parag}</div>
-            <div className={styles.author_flex}>
+            <div className={styles.author_flex} onClick={onAuthClick}>
                 <div className={styles.auth_name}>{card.auth_name}</div>
                 <img src={card.auth_img} alt={card.name} className={styles.auth_img}/>
             </div>
