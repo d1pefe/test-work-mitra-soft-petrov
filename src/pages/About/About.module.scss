@@ -35,4 +35,7 @@
   width: 945px;
   height: 388px;
   padding-top: 0;
+  @media (max-width: 835px) {
+    display: none;
+  }
 }

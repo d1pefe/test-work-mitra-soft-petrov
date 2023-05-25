@@ -7,12 +7,14 @@ type InitialType = {
     postsList: CardTypes[];
     commList: CommTypes[];
     auth: CardTypes | undefined;
+    isLoading: boolean;
 };
 
 const initialState: InitialType = {
     postsList: [],
     commList: [],
     auth: undefined,
+    isLoading: false,
 };
 
 const postSlice = createSlice({
@@ -32,6 +34,9 @@ const postSlice = createSlice({
         setAuth: (state, action: PayloadAction<CardTypes>) => {
             state.auth = action.payload;
         },
+        setLoading: (state, action: PayloadAction<boolean>) => {
+            state.isLoading = action.payload;
+        },
     },
 });
 
@@ -40,7 +45,8 @@ export const {
     setAllPosts,
     getAllComm,
     setAllComm,
-    setAuth
+    setAuth,
+    setLoading,
 } = postSlice.actions;
 
 export default postSlice.reducer;
@@ -48,5 +54,6 @@ export default postSlice.reducer;
 export const PostSelectors = {
     getAllPosts: (state: RootState) => state.posts.postsList,
     getAllComm: (state: RootState) => state.posts.commList,
-    getAuth: (state: RootState) => state.posts.auth
+    getAuth: (state: RootState) => state.posts.auth,
+    getLoading: (state: RootState) => state.posts.isLoading,
 };
