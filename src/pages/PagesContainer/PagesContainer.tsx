@@ -20,7 +20,7 @@ const PagesContainer = () => {
             <div>
                 <hr/>
                 <div className={styles.footer}>
-                    <div>©2022 Bookstore</div>
+                    <div>©2022 Dmitrijs Petrovs</div>
                     <div>
                         <div>All rights reserved</div>
                     </div>
