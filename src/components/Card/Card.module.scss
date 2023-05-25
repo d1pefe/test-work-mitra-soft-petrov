@@ -1,0 +1,62 @@
+@import "../../assets/colors";
+@import "../../assets/fonts";
+
+.container {
+  width: 352px;
+
+  @media (max-width: 835px) {
+    max-width: 328px;
+  }
+
+}
+
+.card_img {
+  height: 264px;
+  width: 226px;
+  margin: 20px 60px;
+}
+
+.title {
+  margin: 20px 0 0 0;
+  font-family: 'Bebas Neue', serif;
+  font-style: normal;
+  font-weight: 700;
+  font-size: 24px;
+}
+
+.author {
+  margin: 8px 0 0 0 ;
+  font-family: 'Helios', serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 24px;
+  color: $secondary;
+}
+
+.author_flex {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+
+  .auth_name {
+    font-family: 'Bebas Neue', serif;
+    font-style: normal;
+    font-weight: 700;
+    font-size: 20px;
+  }
+
+  .auth_img {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+  }
+}
+
+.comm {
+  display: none;
+}
+
+.showd_comm {
+  display: block;
+}

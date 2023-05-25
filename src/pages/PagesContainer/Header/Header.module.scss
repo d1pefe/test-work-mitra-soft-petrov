@@ -1,0 +1,25 @@
+@import "../../../assets/colors";
+
+.header {
+  margin-bottom: 72px;
+  position: relative;
+
+  &Flex {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 20px;
+  }
+}
+
+.burgerIcon {
+  margin-top: 40px;
+  position: absolute;
+  right: 25px;
+
+  &:hover {
+    & > svg > path {
+      fill: $primary !important;
+    }
+  }
+}
